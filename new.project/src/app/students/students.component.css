@@ -1,0 +1,20 @@
+.page-tt-bg{
+    background: #F1F1F1!important;
+    font-family: 'Calibri';
+    opacity: 0.6;
+    font-size: 14px;
+    padding: 15px 0px 0px 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-decoration: none;
+    padding-bottom: 15px;;
+    display: block!important;
+    width: 100%;
+}
+.h1-bold {
+    font-size: 22px;
+    color: #2789c4;
+    font-weight: bold;
+    font-family: 'Calibri';
+}
+ 

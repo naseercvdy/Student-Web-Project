@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="page-tt-bg">
+        <div class="container">    
+        <h1 class="h1-bold p-0 pl-4 mob-pl">Add New Students</h1>
+        </div>
+    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+       
+    <form #studentForm="ngForm"  (ngSubmit)="onSubmitStudent()">
+        <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="txtNameEn">NameEn</label>
+            <input type="text" class="form-control" name="nameEn" #nameEn="ngModel"  required [(ngModel)]="students.nameEn"  aria-describedby="txtNameEn" placeholder="Enter NameEn">
+          
+            <div *ngIf="nameEn.invalid && (nameEn.dirty || nameEn.touched)" style="color: red;">
+              <div *ngIf="nameEn.errors?.['required']"> Name English is required. </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label for="txtNameAr">NameAr</label>
+        <input type="text" class="form-control" name="nameAr" #nameAr="ngModel"  required [(ngModel)]="students.nameAr" aria-describedby="txtNameAr" placeholder="Enter NameAr">
+        <div *ngIf="nameAr.invalid && (nameAr.dirty || nameAr.touched)" style="color: red;">
+          <div *ngIf="nameAr.errors?.['required']"> Name Arabic is required. </div>
+        </div>
+      </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="txtPhoneNumber">Phone Number</label>
+            <input type="tel" class="form-control" id="txtPhoneNumber" #phoneNumber="ngModel" name="phoneNumber"   pattern="^[0-9]*$"  required [(ngModel)]="students.phoneNumber"  aria-describedby="txtPhoneNumber" placeholder="Enter Phone number">
+            <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" style="color: red;">
+              <div *ngIf="phoneNumber.errors?.['required']"> Phone Number is required. </div>
+              <div *ngIf="phoneNumber.errors?.['pattern']">
+                Phone Number is inValid
+              </div> 
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control" id="txtEmail" name="email"  #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  required [(ngModel)]="students.email"  aria-describedby="txtEmail" placeholder="Enter Email">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" style="color: red;">
+              <div *ngIf="email.errors?.['required']"> Email is required. </div>
+              <div *ngIf="email.errors?.['pattern']">
+                Email is is inValid
+              </div> 
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="txtPhoneNumber">Address</label>
+            <input type="tel" class="form-control" id="txtAddress" name="address" #address="ngModel"  required [(ngModel)]="students.address"   aria-describedby="txtAddress" placeholder="Enter Address">
+            <div *ngIf="address.invalid && (address.dirty || address.touched)" style="color: red;">
+              <div *ngIf="address.errors?.['required']"> Address is required. </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="Email">City</label>
+            <input type="email" class="form-control" id="txtCity" name="city" #city="ngModel"   required [(ngModel)]="students.city"  aria-describedby="txtCity" placeholder="Enter City">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" style="color: red;">
+              <div *ngIf="city.errors?.['required']"> City is required. </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="txtAge">Age</label>
+            <input type="text" class="form-control" id="txtAge" name="age"  #age="ngModel"   pattern="^[0-9]*$"  required [(ngModel)]="students.age"  aria-describedby="txtAge" placeholder="Enter Age">
+            <div *ngIf="age.invalid && (age.dirty || age.touched)" style="color: red;">
+              <div *ngIf="age.errors?.['required']"> Age is required. </div>
+              <div *ngIf="age.errors?.['pattern']">
+                Age is  InValid
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="Email">Course</label>
+            <select  class="form-control" name="courseID"    [(ngModel)]="students.courseID"> 
+                <option value="default">----</option> 
+                <option *ngFor="let player of CourseMasterData" [value]="player.courseID"> 
+                    {{player.courseName}} 
+                </option> 
+            </select> 
+            
+          </div>
+        </div>
+    </div>
+        <button type="submit" [disabled]="studentForm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+
+</div>
+</div>
+</div>
+</div>
